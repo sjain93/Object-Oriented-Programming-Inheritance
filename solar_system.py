@@ -19,25 +19,25 @@ class Body: #not explcitly initialised
 
     def __init__(self, body_name, body_mass):
         self.body_name = body_name
-        self.mass = float(body_mass)
+        self.body_mass = float(body_mass)
 
 class Planet(Body):
 
-    def __init__(self, body_name, body_mass, day, year):
-        super().__init__(body_name, body_mass)
+    def __init__(self, p_body_name, p_body_mass, day, year):
+        super().__init__(p_body_name, p_body_mass)
         self.day = float(day)
         self.year = float(year)
 
 class Star(Body):
 
-    def __init__(self, body_name, body_mass, type):
-        super().__init__(body_name, body_mass)
+    def __init__(self, s_body_name, s_body_mass, type):
+        super().__init__(s_body_name, s_body_mass)
         self.type = str(type)
 
 class Moon(Body):
 
-    def __init__(self, body_name, body_mass, orbit_month, planet):
-        super().__init__(body_name, body_mass)
+    def __init__(self, m_body_name, m_body_mass, orbit_month, planet):
+        super().__init__(m_body_name, m_body_mass)
         self.month = float(orbit_month)
         self.planet = None
         for body in System.bodies:
@@ -55,7 +55,7 @@ sol.add(earth)
 sol.add(sun)
 
 moon = Moon("Moon", 2, 3, "Earth")
-print(moon.planet.year)
+print(moon.planet.body_mass)
 print(earth.year)
 #
 sol.add(moon)
